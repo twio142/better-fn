@@ -74,7 +74,7 @@ export const PopoverHandler: MarkdownPostProcessor = function (
     const { sourcePath } = ctx;
     const child = sup.firstElementChild
     if (child instanceof HTMLAnchorElement) {
-      sup.appendText(child.innerText);
+      sup.appendText(child.innerText.replace(/\[(\d+)\]/, '$1'));
       child.innerText = "";
     }
     else console.error("first child not anchor");
